@@ -7,3 +7,4 @@ def index(request):
 
 def new(request):
     return HttpResponse("<h1>Это вторая страница моего приложения на Django!</h1>")
+
