@@ -5,6 +5,7 @@
 
 {% block content %}
     <h1>Новости о Django</h1>
+{% if news %}
     {% for new in news %}
     <div>
         <h3>{{ new.title }}</h3>
@@ -14,8 +15,12 @@
         <p>{{ new.pub_date }}</p>
     </div>
     {% endfor %}
+{% else %}
+    <h4>Новостей еще нет</h4>
+{% endif %}
 
     <h1>Статьи о Django</h1>
+{% if articles %}
     {% for article in articles %}
     <div>
         <h3>{{ article.title }}</h3>
@@ -25,6 +30,9 @@
         <p>{{ article.pub_date }}</p>
     </div>
     {% endfor %}
+{% else %}
+    <h4>Статей еще нет</h4>
+{% endif %}
 {% endblock %}
 
 
