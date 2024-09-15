@@ -1,12 +1,34 @@
 {% extends 'main/layoute.html' %}
-
 {% block title %}
    <title>Новостная страница</title>
 {% endblock %}
 
 {% block content %}
-
     <h1>Новости о Django</h1>
+    {% for new in news %}
+    <div>
+        <h3>{{ new.title }}</h3>
+        <p>{{ new.short_description }}</p>
+        <p>{{ new.text }}</p>
+        <p>Автор: {{ new.user.username }}</p>
+        <p>{{ new.pub_date }}</p>
+    </div>
+    {% endfor %}
 
-
+    <h1>Статьи о Django</h1>
+    {% for article in articles %}
+    <div>
+        <h3>{{ article.title }}</h3>
+        <p>{{ article.short_description }}</p>
+        <p>{{ article.text }}</p>
+        <p>Автор: {{ article.author.username }}</p>
+        <p>{{ article.pub_date }}</p>
+    </div>
+    {% endfor %}
 {% endblock %}
+
+
+
+
+
+
