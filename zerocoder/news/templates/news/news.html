@@ -5,34 +5,46 @@
 
 {% block content %}
     <h1>Новости о Django</h1>
-{% if news %}
-    {% for new in news %}
-    <div>
-        <h3>{{ new.title }}</h3>
-        <p>{{ new.short_description }}</p>
-        <p>{{ new.text }}</p>
-        <p>Автор: {{ new.user.username }}</p>
-        <p>{{ new.pub_date }}</p>
+    {% if news %}
+    <div class="row">
+        {% for new in news %}
+        <div class="col-md-4 mb-4">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ new.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">{{ new.short_description }}</h6>
+                    <p class="card-text">{{ new.text }}</p>
+                    <p class="card-text">Автор: {{ new.user.username }}</p>
+                    <p>{{ new.pub_date }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-{% else %}
-    <h4>Новостей еще нет</h4>
-{% endif %}
+    {% else %}
+        <h4>Новостей еще нет</h4>
+    {% endif %}
 
     <h1>Статьи о Django</h1>
-{% if articles %}
-    {% for article in articles %}
-    <div>
-        <h3>{{ article.title }}</h3>
-        <p>{{ article.short_description }}</p>
-        <p>{{ article.text }}</p>
-        <p>Автор: {{ article.author.username }}</p>
-        <p>{{ article.pub_date }}</p>
+    {% if articles %}
+    <div class="row">
+        {% for article in articles %}
+        <div class="col-md-4 mb-4">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">{{ article.short_description }}</h6>
+                    <p class="card-text">{{ article.text }}</p>
+                    <p class="card-text">Автор: {{ article.author.username }}</p>
+                    <p>{{ article.pub_date }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-{% else %}
-    <h4>Статей еще нет</h4>
-{% endif %}
+    {% else %}
+        <h4>Статей еще нет</h4>
+    {% endif %}
 {% endblock %}
 
 
